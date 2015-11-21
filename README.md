@@ -1,6 +1,6 @@
 # Docker Grapahana
 
-Use KairoSDB as DataSource
+Use KairosDB as DataSource
 
 ## Build
 
@@ -8,4 +8,6 @@ Use KairoSDB as DataSource
 
 ## Run
 
-    docker run --rm --name graphana -p 3000:3000 -e GF_AUTH_ANONYMOUS_ENABLED=true -l kairosdb graphana
+	docker run -d --name graphana -p 3000:3000 -l kairosdb -v /var/lib/grafana:/var/lib/grafana  graphana
+	sleep 5
+	bash setup-datasource.sh
